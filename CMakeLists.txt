@@ -1,4 +1,4 @@
- cmake_minimum_required(VERSION 3.15) # Проверка версии CMake.
+cmake_minimum_required(VERSION 3.15) # Проверка версии CMake.
 									 # Если версия установленой программы
 									 # старее указаной, произайдёт аварийный выход.
 
@@ -25,19 +25,24 @@ add_executable("${PROJECT_NAME}" main.cpp
 		inc/Score.hpp src/Score.cpp
 		inc/Bullet.hpp src/Bullet.cpp)
 											
-target_link_libraries("${PROJECT_NAME}" sfml-graphics-s-d
-						  sfml-window-s-d
-						  sfml-system-s-d
-						  opengl32
-						  freetype
-						  winmm
-						  gdi32
-						  sfml-audio-s-d
-						  openal32
-						  flac
-						  vorbisenc
-						  vorbisfile
-						  vorbis
-						  ogg)
+target_link_libraries("${PROJECT_NAME}" optimized sfml-graphics-s
+optimized sfml-window-s
+optimized sfml-system-s
+opengl32
+freetype
+winmm
+gdi32
+optimized sfml-audio-s
+openal32
+flac
+vorbisenc
+vorbisfile
+vorbis
+ogg
+              debug sfml-graphics-s-d
+              debug sfml-window-s-d
+              debug sfml-system-s-d
+              debug sfml-audio-s-d
+)
 						  
 file(COPY "Images" DESTINATION "/")
